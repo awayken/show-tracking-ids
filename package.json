@@ -2,8 +2,8 @@
   "name": "show-tracking-ids",
   "version": "1.0.0",
   "scripts": {
-    "build": "gulp watch",
-    "start": "gulp"
+    "build": "gulp",
+    "now-build": "npm run build"
   },
   "dependencies": {},
   "devDependencies": {
