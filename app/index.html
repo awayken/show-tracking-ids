@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Show Tracking IDs Bookmarklet</title>
+        <style>
+            html,
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            }
+            header {
+                background: silver;
+                margin-bottom: 1em;
+                padding: 2em;
+            }
+            nav {
+                display: flex;
+                justify-content: center;
+            }
+            nav a {
+                margin: 0 .5em;
+                padding: .5em;
+            }
+            footer {
+                border-top: 1px solid silver;
+                margin-top: 1em;
+                padding-top: 1em;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Show Tracking IDs Bookmarklet</h1>
+
+        <p>
+            Drag this link to your bookmark bar: 
+            <a href="#" data-bookmarklet>
+                Show Tracking IDs
+            </a>
+        </p>
+
+        <header>
+            <h1>This is a big header</h1>
+        </header>
+
+        <nav>
+            <a href="#">Home</a>
+            <a href="#">Inventory</a>
+            <a href="#">Finance</a>
+            <a href="#">Contact Us</a>
+        </nav>
+
+        <p>This paragraph has <a href="#" data-trackingid="anchor-first">this anchor</a> and <a href="#" data-trackingid="anchor-second">this anchor</a> which both have tracking IDs on them.</p>
+
+        <footer>
+            <nav>
+                <a href="#" data-trackingid="share-facebook">Share on Facebook</a>
+                <a href="#" data-trackingid="share-twitter">Share on Twitter</a>
+            </nav>
+        </footer>
+
+        <script>
+            var scriptToAdd = window.location.href + 'bookmarklet.js';
+            var addScript = 'javascript:(function%20(e){var%20t=document.createElement("script");t.setAttribute("src",e),t.setAttribute("crossorigin","anonymous"),document.body.appendChild(t)}("' + scriptToAdd + '"));'
+            document.querySelector('[data-bookmarklet]').href = addScript;
+        </script>
+    </body>
+</html>
