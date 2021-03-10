@@ -31,7 +31,7 @@ class BookmarkletPopover extends HTMLElement {
 
     constructor() {
         super();
-    
+
         this.renderRoot = this.attachShadow({ mode: 'open' });
       }
 
@@ -82,12 +82,13 @@ class BookmarkletPopover extends HTMLElement {
         `;
     }
 }
+
 window.customElements.define('let-popover', BookmarkletPopover);
 
 class BookmarkletInstructions extends HTMLElement {
     constructor() {
         super();
-    
+
         this.renderRoot = this.attachShadow({ mode: 'open' });
 
         this.hideInstructions = this.hideInstructions.bind(this);
@@ -128,6 +129,7 @@ class BookmarkletInstructions extends HTMLElement {
         `;
     }
 }
+
 window.customElements.define('let-instructions', BookmarkletInstructions);
 
 (function main() {
