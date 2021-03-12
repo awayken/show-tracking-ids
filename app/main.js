@@ -146,8 +146,14 @@ window.customElements.define('let-instructions', BookmarkletInstructions);
     function showTrackingInfo(event) {
         const x = event.clientX - 20;
         const y = event.clientY + 40;
-        const target = event.currentTarget;
-        const trackingid = target.dataset.trackingid;
+
+        let target = event.target;
+        let trackingid = target.dataset.trackingid;
+
+        while (!trackingid && target !== event.currentTarget) {
+            target = target.parentNode;
+            trackingid = target.dataset.trackingid;
+        }
 
         if (trackingid) {
             info.innerHTML = `
@@ -161,17 +167,10 @@ window.customElements.define('let-instructions', BookmarkletInstructions);
             info.style.setProperty('--top', `${y}px`);
             info.style.setProperty('--left', `${x}px`);
             info.show = true;
+        } else {
+            info.show = false;
         }
     }
 
-    function hideTrackingInfo() {
-        info.show = false;
-    }
-
-    const trackingIDs = document.querySelectorAll('[data-trackingid]');
-
-    for (const trackingID of trackingIDs) {
-        trackingID.addEventListener('mousemove', showTrackingInfo);
-        trackingID.addEventListener('mouseout', hideTrackingInfo);
-    }
+    document.body.addEventListener('mousemove', showTrackingInfo);
 }());
