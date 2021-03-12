@@ -159,10 +159,7 @@ window.customElements.define('let-instructions', BookmarkletInstructions);
             info.innerHTML = `
                 <strong>Tracking ID:</strong> ${trackingid}<br />
                 <strong>CSS Selector:</strong><br />
-                <code>
-                    [data-trackingid="${trackingid}"],<br />
-                    [data-trackingid="${trackingid}"] *
-                </code>
+                <code>[data-trackingid="${trackingid}"],<br />[data-trackingid="${trackingid}"] *</code>
             `;
             info.style.setProperty('--top', `${y}px`);
             info.style.setProperty('--left', `${x}px`);
